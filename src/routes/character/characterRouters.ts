@@ -6,6 +6,7 @@ import findAllCharactersController from "@/modules/charaters/useCases/findAll/fi
 import findByIdCharacterController from "@/modules/charaters/useCases/findById/findByIdController";
 import updateCharacterController from "@/modules/charaters/useCases/update/updateController";
 import { Router } from "express";
+import deleteCharacterController from "@/modules/charaters/useCases/delete/deleteController";
 
 const characterRouter = Router()
 
@@ -13,5 +14,6 @@ characterRouter.post('/',validateSchema(characterSchemaJoi),createCharacterContr
 characterRouter.get('/',findAllCharactersController)
 characterRouter.get('/:id',findByIdCharacterController)
 characterRouter.put('/:id',authValidation,validateSchema(updateCharacterSchemaJoi),updateCharacterController)
+characterRouter.delete('/:id',authValidation,deleteCharacterController)
 
 export default characterRouter
