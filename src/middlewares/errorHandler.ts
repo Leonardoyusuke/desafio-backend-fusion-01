@@ -1,11 +1,10 @@
 import { ErrorHandler } from "@/helpers/interfaces/errorHandlerInterface";
-import { Request, Response, NextFunction } from "express";
+import { Request, Response } from "express";
 
 export const errorHandler: ErrorHandler = (
   err: any,
   req: Request,
   res: Response,
-  next: NextFunction
 ) => {
   if (err.statusCode && err.message) {
     return res.status(err.statusCode).json({

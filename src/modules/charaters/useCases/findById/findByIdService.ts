@@ -1,4 +1,4 @@
-import { BadRequest, NotFoundError } from "@/helpers/errors/apiErrors";
+import { NotFoundError } from "@/helpers/errors/apiErrors";
 import characterRepository from "../../repositories/charactersRepositories";
 
 export default async function findByIdCharacterService(id:number) {

@@ -1,5 +1,4 @@
 import { prisma } from "@/database/database";
-import { characterCreate } from "@/helpers/interfaces/characterCreate";
 
 async function createCharacter(name:string, speciesId:number, affiliationId:number, homePlanetId:number) {
     const create = await prisma.character.create({
