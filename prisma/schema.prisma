@@ -1,0 +1,57 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Species {
+  id        Int        @id @default(autoincrement())
+  name      String
+  characters Character[]
+}
+
+model Affiliation {
+  id        Int        @id @default(autoincrement())
+  name      String
+  characters Character[]
+}
+
+model StarSystem {
+  id        Int        @id @default(autoincrement())
+  name      String
+  description String
+  planets   Planet[]
+}
+
+model Planet {
+  id        Int        @id @default(autoincrement())
+  name      String
+  climate   String
+  terrain   String
+  population Int
+  starSystemId Int
+  starSystem   StarSystem @relation(fields: [starSystemId], references: [id])
+  characters   Character[]
+}
+
+model Spaceship {
+  id                Int    @id @default(autoincrement())
+  name              String
+  model             String
+  manufacturer      String
+  passengerCapacity Int
+}
+
+model Character {
+  id           Int      @id @default(autoincrement())
+  name         String
+  speciesId    Int
+  affiliationId Int
+  homePlanetId Int
+  species      Species   @relation(fields: [speciesId], references: [id])
+  affiliation  Affiliation @relation(fields: [affiliationId], references: [id])
+  homePlanet   Planet    @relation(fields: [homePlanetId], references: [id])
+}
