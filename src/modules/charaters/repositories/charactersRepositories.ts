@@ -25,10 +25,26 @@ async function findAllCharacters() {
     return await prisma.character.findMany()
 }
 
+async function updateCharacter(id: number, name: string, speciesId: number, affiliationId:number , homePlanetId:number) {
+    const update = await prisma.character.update({
+        where: {
+            id: id,
+        },
+        data: {
+            ...(name && { name }),
+            ...(speciesId && { speciesId }),
+            ...(affiliationId && {affiliationId}),
+            ...(homePlanetId && {homePlanetId})
+        }
+    })
+    return update
+}
+
 
 const characterRepository = {
     createCharacter,
     findAllCharacters,
-    findById
+    findById,
+    updateCharacter
 }
 export default characterRepository

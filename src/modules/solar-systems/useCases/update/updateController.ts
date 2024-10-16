@@ -8,7 +8,8 @@ export async function updateStarSystemsController(req:Request, res:Response):Pro
         const update = await updateStarSystemsService(id,name,description)
         return res.status(200).json(update)
     } catch (error) {
-        
+        console.log(error)
+        return res.sendStatus(500);
     }
     
 }
