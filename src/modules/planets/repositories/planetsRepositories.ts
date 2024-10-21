@@ -24,11 +24,26 @@ async function findById(id:number) {
         }
     })
 }
+async function updatePlanet(id: number, name: string, climate: string, terrain: string, starSystemId: number) {
+    const update = await prisma.character.update({
+        where: {
+            id: id,
+        },
+        data: {
+            ...(name && { name }),
+            ...(climate && { climate }),
+            ...(terrain && { terrain }),
+            ...(starSystemId && { starSystemId })
+        }
+    })
+    return update
+}
 
 const planetsRepositories = {
     createPlanet,
     findAll,
-    findById
+    findById,
+    updatePlanet
 }
 
 export default planetsRepositories
