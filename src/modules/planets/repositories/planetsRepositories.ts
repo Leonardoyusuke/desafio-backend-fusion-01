@@ -12,8 +12,16 @@ async function createPlanet(name:string, climate:string, terrain:string, starSys
     return create
 }
 
+async function findAll() {
+    return await prisma.planet.findMany({
+
+    })
+    
+}
+
 const planetsRepositories = {
-    createPlanet
+    createPlanet,
+    findAll
 }
 
 export default planetsRepositories
