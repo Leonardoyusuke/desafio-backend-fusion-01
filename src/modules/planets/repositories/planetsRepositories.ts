@@ -25,7 +25,7 @@ async function findById(id:number) {
     })
 }
 async function updatePlanet(id: number, name: string, climate: string, terrain: string, starSystemId: number) {
-    const update = await prisma.character.update({
+    const update = await prisma.planet.update({
         where: {
             id: id,
         },
@@ -39,11 +39,21 @@ async function updatePlanet(id: number, name: string, climate: string, terrain: 
     return update
 }
 
+async function delet(id:number) {
+    const deletePlanet = await prisma.planet.delete({
+        where:{
+            id
+        }
+    })
+    
+}
+
 const planetsRepositories = {
     createPlanet,
     findAll,
     findById,
-    updatePlanet
+    updatePlanet,
+    delet
 }
 
 export default planetsRepositories

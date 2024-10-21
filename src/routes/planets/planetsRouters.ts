@@ -6,12 +6,14 @@ import createPlanetController from "@/modules/planets/useCases/create/createCont
 import findAllPlanetsController from "@/modules/planets/useCases/findAll/findAllController";
 import findByIdController from "@/modules/planets/useCases/findById/findByIdController";
 import updateCharacterController from "@/modules/charaters/useCases/update/updateController";
+import deletePlanetController from "@/modules/planets/useCases/delete/deleteController";
 
 const planetsRouter = Router()
 
-planetsRouter.post('/', validateSchema(planetSchema), createPlanetController)
+planetsRouter.post('/', authValidation, validateSchema(planetSchema), createPlanetController)
 planetsRouter.get('/', findAllPlanetsController)
 planetsRouter.get('/:id', findByIdController)
 planetsRouter.put('/:id', authValidation, validateSchema(updatePlanetSchema), updateCharacterController)
+planetsRouter.delete('/:id', authValidation, deletePlanetController)
 
 export default planetsRouter
