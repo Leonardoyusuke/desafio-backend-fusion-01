@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 export default async function createCharacterService(name: string, speciesId: number, affiliationId: number, homePlanetId: number) {
     const create = await characterRepository.createCharacter(name, speciesId, affiliationId, homePlanetId)
     if (!create) throw new BadRequest("Bad Request")
-        console.log("aqui")
 
     const token = jwt.sign(
         {
