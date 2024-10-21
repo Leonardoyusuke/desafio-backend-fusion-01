@@ -14,14 +14,21 @@ async function createPlanet(name:string, climate:string, terrain:string, starSys
 
 async function findAll() {
     return await prisma.planet.findMany({
-
     })
-    
+}
+
+async function findById(id:number) {
+    return await prisma.planet.findFirst({
+        where:{
+            id
+        }
+    })
 }
 
 const planetsRepositories = {
     createPlanet,
-    findAll
+    findAll,
+    findById
 }
 
 export default planetsRepositories
