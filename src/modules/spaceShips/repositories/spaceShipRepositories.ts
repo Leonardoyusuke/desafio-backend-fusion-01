@@ -40,12 +40,21 @@ async function update(id: number, name: string, model: string, manufacturer: str
         }
     })
 }
+async function delet(id:number) {
+    const delet = await prisma.spaceship.delete({
+        where:{
+            id
+        }
+    })
+    return delet
+}
 
 const spaceShipRepositorie = {
     createSpaceShip,
     findAll,
     findById,
-    update
+    update,
+    delet
 }
 
 export default spaceShipRepositorie

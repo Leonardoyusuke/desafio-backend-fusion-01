@@ -13,5 +13,6 @@ spaceShipRouter.post('/', authValidation, validateSchema(spaceShipSchema), Creat
 spaceShipRouter.get('/', findAllCharactersController)
 spaceShipRouter.get('/:id',findByIdCharacterController)
 spaceShipRouter.put('/:id',authValidation, validateSchema(updateSpaceShipSchema), updateSpaceShipController)
+spaceShipRouter.delete('/:id',authValidation,)
 
 export default spaceShipRouter
