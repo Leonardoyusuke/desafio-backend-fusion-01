@@ -13,5 +13,4 @@ export default async function findByIdController(req:Request, res:Response):Prom
         }
         return res.sendStatus(500);
     }
-    
 }
