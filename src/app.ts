@@ -3,6 +3,9 @@ import cors from 'cors';
 import router from "./routes";
 import { connectDb } from "./database/database";
 import { errorHandler } from "./middlewares/errorHandler"; 
+import { loadEnv } from "./database";
+
+loadEnv()
 
 const app = express();
 
@@ -15,3 +18,5 @@ app.use(errorHandler)
 const port = process.env.PORT;
 app.listen(port, () => console.log(`Server running in port: ${port}`));
 connectDb();
+
+export default app

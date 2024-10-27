@@ -7,12 +7,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Affiliation {
-  id        Int        @id @default(autoincrement())
-  name      String
-  characters Character[]
-}
-
 model StarSystem {
   id        Int        @id @default(autoincrement())
   name      String
@@ -42,8 +36,7 @@ model Character {
   id           Int      @id @default(autoincrement())
   name         String
   species      String
-  affiliationId Int
+  affiliation  String
   homePlanetId Int
-  affiliation  Affiliation @relation(fields: [affiliationId], references: [id])
   homePlanet   Planet    @relation(fields: [homePlanetId], references: [id])
 }

@@ -6,7 +6,7 @@ export default async function deleteCharacterController(req:Request, res:Respons
     const id = parseInt(req.params.id)
     try {
         const deleteCharacter = await deleteCharacterService(id)
-        return res.status(200).json(deleteCharacter.name)
+        return res.status(204).json(deleteCharacter.name)
     } catch (error) {
         if (error instanceof BadRequest) {
             return res.status(error.statusCode).send(error.message);

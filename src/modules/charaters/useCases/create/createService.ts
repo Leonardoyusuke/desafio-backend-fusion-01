@@ -8,6 +8,7 @@ export default async function createCharacterService(name: string, species: stri
     if(getPlanet===null) throw new NotFoundError("Not Found")
     const create = await characterRepository.createCharacter(name, species, affiliation, getPlanet.id)
     if (!create) throw new BadRequest("Bad Request")
+    const id = create.id
 
     const token = jwt.sign(
         {
@@ -17,5 +18,5 @@ export default async function createCharacterService(name: string, species: stri
         process.env.SECRET_JWT as string 
     );
 
-    return token
+    return {token, id}
 }
