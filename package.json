@@ -7,7 +7,7 @@
   "@": "dist"
 },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
+    "build": "tsc ",
     "dev": "nodemon -r tsconfig-paths/register ./src/server.ts",
     "start": "node dist/server.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
