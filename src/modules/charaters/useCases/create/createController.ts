@@ -3,9 +3,9 @@ import createCharacterService from "./createService";
 import { BadRequest } from "@/helpers/errors/apiErrors";
 
 export default async function createCharacterController(req:Request, res:Response):Promise<any> {
-    const {name, species, affiliationId, homePlanetId} = req.body
+    const {name, species, affiliation, homePlanet} = req.body
     try {
-        const create = await createCharacterService(name, species, affiliationId, homePlanetId)
+        const create = await createCharacterService(name, species, affiliation, homePlanet)
         if(create) return res.status(201).json(create)
     } catch (error) {
         if (error instanceof BadRequest) {

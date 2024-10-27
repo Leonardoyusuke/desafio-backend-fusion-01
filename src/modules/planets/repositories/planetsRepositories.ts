@@ -48,12 +48,22 @@ async function delet(id:number) {
     
 }
 
+async function findByName(name:string) {
+    const find = await prisma.planet.findFirst({
+        where:{
+            name
+        }
+    })
+    return find  
+}
+
 const planetsRepositories = {
     createPlanet,
     findAll,
     findById,
     updatePlanet,
-    delet
+    delet,
+    findByName
 }
 
 export default planetsRepositories

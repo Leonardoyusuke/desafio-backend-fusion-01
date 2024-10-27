@@ -1,6 +1,6 @@
 export interface characterCreate {
     name:string;
-    speciesId:number;
-    affiliationId:number;
+    species:string;
+    affiliation:string;
     homePlanetId:number;
 }

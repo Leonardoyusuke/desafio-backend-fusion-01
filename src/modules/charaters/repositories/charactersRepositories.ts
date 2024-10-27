@@ -1,11 +1,11 @@
 import { prisma } from "@/database/database";
 
-async function createCharacter(name: string, species: string, affiliationId: number, homePlanetId: number) {
+async function createCharacter(name: string, species: string, affiliation: string, homePlanetId: number) {
     const create = await prisma.character.create({
         data: {
             name,
             species,
-            affiliationId,
+            affiliation,
             homePlanetId
         }
     })
@@ -25,15 +25,15 @@ async function findAllCharacters() {
     return await prisma.character.findMany()
 }
 
-async function updateCharacter(id: number, name: string, speciesId: number, affiliationId: number, homePlanetId: number) {
+async function updateCharacter(id: number, name: string, species: string, affiliation: string, homePlanetId: number) {
     const update = await prisma.character.update({
         where: {
             id: id,
         },
         data: {
             ...(name && { name }),
-            ...(speciesId && { speciesId }),
-            ...(affiliationId && { affiliationId }),
+            ...(species && { species }),
+            ...(affiliation && { affiliation }),
             ...(homePlanetId && { homePlanetId })
         }
     })
