@@ -89,7 +89,8 @@ Naves Espaciais (Spaceships)
 
 	•	POST /spaceships: Criar uma nova nave espacial.
 	•	Body:
-```json { 
+```json 
+{ 
 "name": "Nome da nave",
  "model": "Modelo da nave",
  "manufacturer": "Fabricante da nave",
