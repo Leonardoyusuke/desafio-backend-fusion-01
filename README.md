@@ -23,7 +23,10 @@ Planetas
 
 	•	POST /planets: Criar um novo planeta.
 	•	Body:
-```json { "name": "Nome do planeta", "climate": "Clima do planeta", "terrain": "Terreno do planeta", "starSystemId": 1 } ```
+```json { "name": "Nome do planeta",
+	  "climate": "Clima do planeta",
+	  "terrain": "Terreno do planeta",
+	  "starSystemId": 1 } ```
 	•	GET /planets: Listar todos os planetas.
 	•	GET /planets/:id: Obter detalhes de um planeta específico.
 	•	PUT /planets/:id: Atualizar informações de um planeta.
