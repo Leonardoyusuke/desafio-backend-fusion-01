@@ -1,10 +1,10 @@
 import { prisma } from "@/database/database";
 
-async function createCharacter(name: string, speciesId: number, affiliationId: number, homePlanetId: number) {
+async function createCharacter(name: string, species: string, affiliationId: number, homePlanetId: number) {
     const create = await prisma.character.create({
         data: {
             name,
-            speciesId,
+            species,
             affiliationId,
             homePlanetId
         }
