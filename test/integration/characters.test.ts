@@ -6,11 +6,11 @@ import app from '../../src/app';
 let authToken: string;
 
 beforeAll(async () => {
-  connectDb()
+  // connectDb()
 });
 
 afterAll(async () => {
-  await disconnectDB();
+
 });
 
 describe('Characters Route', () => {

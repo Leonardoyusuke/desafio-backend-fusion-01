@@ -40,7 +40,7 @@ async function updatePlanet(id: number, name: string, climate: string, terrain: 
 }
 
 async function delet(id:number) {
-    const deletePlanet = await prisma.planet.delete({
+    return await prisma.planet.delete({
         where:{
             id
         }

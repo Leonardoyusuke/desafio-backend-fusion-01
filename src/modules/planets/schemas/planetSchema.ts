@@ -11,4 +11,5 @@ export const updatePlanetSchema = Joi.object({
     name: Joi.string().min(2),
     climate: Joi.string().min(2),
     terrain: Joi.string().min(2),
-    starSystemId: Joi.number()})
+    starSystemId: Joi.number()
+})

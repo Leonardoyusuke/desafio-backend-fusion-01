@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "nodemon -r tsconfig-paths/register ./src/app.ts",
+    "dev": "nodemon -r tsconfig-paths/register ./src/server.ts",
     "start": "node dist/server.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "db:seed": "cross-env NODE_ENV=test ts-node prisma/seed.ts",
