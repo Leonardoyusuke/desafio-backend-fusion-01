@@ -6,7 +6,7 @@ export default async function findByIdController(req:Request, res:Response):Prom
     const id = parseInt(req.params.id)
     try {
         const findById = await findByIdService(id)
-        return res.status(201).json(findById)
+        return res.status(200).json(findById)
     } catch (error) {
         if (error instanceof NotFoundError) {
             return res.status(error.statusCode).send(error.message);
