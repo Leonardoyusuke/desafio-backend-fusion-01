@@ -4,7 +4,7 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "baseUrl": "./",
-    "outDir": "dist",
+    "outDir": "./dist",
     "rootDirs": ["src", "tests"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
