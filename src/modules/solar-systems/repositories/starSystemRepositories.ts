@@ -1,5 +1,4 @@
-import { prisma } from "@/database/database";
-import { Prisma } from "@prisma/client";
+import { prisma } from '../../../database/database'
 
 async function createStarSystem(name: string, description: string) {
     const create = await prisma.starSystem.create({
@@ -48,21 +47,14 @@ async function updateStarSystems(id: number, name: string, description: string) 
     return update
 }
 async function deleteStarSystem(id: number) {
-    try {
-        const delet = await prisma.starSystem.delete({
-            where: {
-                id
-            }
-        })
-        return delet
-    } catch (error) {
-        if (error instanceof Prisma.PrismaClientKnownRequestError && error.code === 'P2025') {
-            return null;
+    const delet = await prisma.starSystem.delete({
+        where: {
+            id
         }
-        throw error;
-    }
-
+    })
+    return delet
 }
+
 
 
 const starSystemRepository = {
